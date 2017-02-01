@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="TodoListApp">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Todo list</title>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script type="text/javascript" src="todo.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+	<div class="page-container" ng-controller="TodoCtrl">
+		<h1>Angular Todo list</h1>
+		<ul class="add-todo">
+			<li>
+				<input ng-keyup="add($event)" ng-model="newTodo" type="text" class="new-item" placeholder="Add new item">
+			</li>
+		</ul>
+		<ul class="todo-list">
+			<li class="todo-list--item" ng-repeat="todo in todos">
+				<button class="button" ng-click="done(todo)">X</button>
+				<span class="completed-{{ todo.completed }}">{{ todo.title }}</span>
+			</li>
+		</ul>
+		 <button href="" ng-click="remove()">Remove finished</button> 
+	</div>
+</body>
+</html>
